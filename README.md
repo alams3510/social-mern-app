@@ -3,5 +3,5 @@
 ## I used context API for the state management and using proxy server to prevent CORS issue.
 ## Here user can post his comment and photos.
 ## User can foloow and unfollow another users.
-##User can check another users profile.
+## User can check another users profile.
 ## Applied logic in react-router-dom to redirect users according to his authencity.
