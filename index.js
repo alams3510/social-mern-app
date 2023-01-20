@@ -9,6 +9,7 @@ const multer=require("multer");
 const path = require("path");
 
 dotenv.config();
+const PORT=process.env.PORT||3001
 //connection with mongoDB Atlas
 mongoose.connect(
   process.env.MONGO_URL,
@@ -50,6 +51,6 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
 })
 
 
-app.listen(3001, () => {
-  console.log("Backend server is running!");
+app.listen(PORT, () => {
+  console.log("Backend server is running!"+PORT);
 });
