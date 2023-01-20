@@ -11,13 +11,21 @@ const path = require("path");
 dotenv.config();
 const PORT=process.env.PORT||3001
 //connection with mongoDB Atlas
-mongoose.connect(
-  process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+
+const connectDB=async()=>{
+    try {
+    await  mongoose.connect(
+        process.env.MONGO_URL,
+        { useNewUrlParser: true, useUnifiedTopology: true },
+        () => {
+          console.log("Connected to MongoDB");
+        }
+      )
+    } catch (error) {
+      console.log(error);
+    }
+}
+
 
 //middleware
 app.use("/images",express.static(path.join(__dirname,"public/images")))
@@ -49,8 +57,10 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
     console.log(error)
   }
 })
+connectDB().then(()=>{
+  app.listen(PORT, () => {
+    console.log("Backend server is running!"+PORT);
+  });
+})
 
 
-app.listen(PORT, () => {
-  console.log("Backend server is running!"+PORT);
-});
