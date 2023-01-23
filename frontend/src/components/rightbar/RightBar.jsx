@@ -1,7 +1,7 @@
 import "./rightbar.css";
 import { GrFormAdd } from "react-icons/gr";
 import { useContext, useEffect } from "react";
-import axios from "axios"
+import {axiosInstance} from "../../config"
 import { useState } from "react";
 import {AuthContext} from "../../context/AuthContext"
 import {Link} from "react-router-dom"
@@ -18,7 +18,7 @@ console.log(currentUser);
  useEffect(()=>{
     const fetchFriendlist= async()=>{
         try {
-          const friendList=  await axios.get("/users/friends/"+currentUser._id)
+          const friendList=  await axiosInstance.get("/users/friends/"+currentUser._id)
               setFriend(friendList.data);
         } catch (error) {
               console.log(error);
@@ -34,13 +34,13 @@ setFollow(currentUser.followings.includes(user?._id))
     const handleFollow=async()=>{
        try {
         if(!follow){
-          await axios.put("/users/"+user._id+"/follow",{
+          await axiosInstance.put("/users/"+user._id+"/follow",{
             userId:currentUser._id
           });
           dispatch({type:"FOLLOW",payload:user._id})
         }
         else{
-          await axios.put("/users/"+user._id+"/unfollow",{
+          await axiosInstance.put("/users/"+user._id+"/unfollow",{
             userId:currentUser._id
           });
           dispatch({type:"UNFOLLOW",payload:user._id})

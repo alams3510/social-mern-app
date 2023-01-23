@@ -1,7 +1,7 @@
 import "./post.css";
 import { FiMoreVertical } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import axios from 'axios';
+import {axiosInstance} from '../../config';
 import { format } from "timeago.js";
 import {Link} from 'react-router-dom'
 import { useContext } from "react";
@@ -15,7 +15,7 @@ const Post = ({posts}) => {
   const [isliked,setisLiked]=useState(false);
     useEffect(()=>{
       const  fetchUser=async()=>{
-      const res=  await axios.get(`/users?userId=${posts.userId}`);
+      const res=  await axiosInstance.get(`/users?userId=${posts.userId}`);
       setUser(res.data);
       };
       fetchUser()
@@ -28,7 +28,7 @@ const Post = ({posts}) => {
 
       const likehandler=async()=>{
         try {
-            const res=await axios.put('/posts/'+posts._id+'/like',{userId:currentUser._id})
+            const res=await axiosInstance.put('/posts/'+posts._id+'/like',{userId:currentUser._id})
               console.log(res);
         } catch (error) {
           console.log(error);

@@ -8,7 +8,7 @@ import {
 import { useContext } from "react";
 import {AuthContext} from '../../context/AuthContext'
 import { useRef } from "react";
-import axios from "axios"
+import {axiosInstance} from "../../config"
 import { useState } from "react";
 
 
@@ -34,13 +34,13 @@ const Share = () => {
         data.append("file",file);
         newpost.img=fileName;
         try {
-          await axios.post("/upload",data)
+          await axiosInstance.post("/upload",data)
         } catch (error) {
           
         }
       }
       try {
-        await axios.post("/posts/",newpost);
+        await axiosInstance.post("/posts/",newpost);
         window.location.reload()
       } catch (error) {
         console.log(error);

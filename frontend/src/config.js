@@ -1,5 +1,5 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// export const axiosInstance=axios.create({
-//     baseURL:"https://socialmern.onrender.com/api/"
-// })
+export const axiosInstance=axios.create({
+    baseURL:"https://socialmern.onrender.com/api/"
+})
