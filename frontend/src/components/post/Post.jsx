@@ -35,8 +35,21 @@ const Post = ({posts}) => {
         }
               setLike(isliked? like-1:like+1);
               setisLiked(!isliked);
-
       }
+
+      const [visible,setVisible]=useState(false);
+      const deletepost=async(id,userId)=>{
+        if(userId=== currentUser._id){
+         try {
+          console.log(id,currentUser._id);
+          await axiosInstance.delete(`/posts/${id}`)
+          window.location.reload(true);
+         } catch (error) {
+          console.log(error);
+         } 
+         }
+      }
+      if(posts.length>0){
   return (
     <>
         <div className="postContainer">
@@ -50,8 +63,11 @@ const Post = ({posts}) => {
               <span className="postDate">{format(posts.createdAt)}</span>
             </div>
             <div className="postTopRight">
+            {visible && <ul className="updatepost">
+                  <li onClick={()=>{deletepost(posts._id,posts.userId)}}>delete</li>
+                </ul>} 
               <div>
-                <FiMoreVertical className="threedotRight" />
+                <FiMoreVertical className="threedotRight" onClick={()=>setVisible(!visible)} />
               </div>
             </div>
           </div>
@@ -80,7 +96,14 @@ const Post = ({posts}) => {
       
 
        </>
-  );
+  )}else{
+    return (<div className="nopost">
+    
+    <h1 >You dont have any post yet</h1>
+        <p>Please do share your thoughts....</p>
+    </div>)
+  }
+  ;
 };
 
 export default Post;

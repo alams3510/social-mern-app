@@ -37,6 +37,31 @@
 .threedotRight {
   cursor: pointer;
 }
+.updatepost{
+  z-index: 4;
+  position: absolute;
+  top: -5px;
+  left: 29px;
+  }
+  .updatepost li{
+    list-style: none;
+    background-color: black;
+    color: white;
+    cursor: pointer; 
+    margin-bottom: 1px; 
+    padding: 3px; 
+    border: none;  
+  }
+  .updatepost li:hover{
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    outline: none;
+    font-weight: 500;
+  }
+  .postTopRight{
+    position: relative;
+  }
 .postCenter {
   margin: 20px 0;
   width: 100%;
@@ -74,4 +99,21 @@
   cursor: pointer;
   border-bottom: 1px dashed grey;
   font-size: 15px;
+}
+.nopost{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.nopost h1{
+  font-weight: 600;
+  font-size: 50px;
+  letter-spacing: 1px;
+  color: grey;
+}
+.nopost p{
+  font-weight: 400;
+  color: grey;
+  font-size: 30px;
 }

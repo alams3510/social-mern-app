@@ -42,17 +42,18 @@ router.put("/:id",async(req,res)=>{
 router.delete("/:id",async(req,res)=>{
     try {
     const post= await Post.findById(req.params.id);
-    if(req.body.userId===post.userId){
+    // if(req.body.userId===post.userId){
             await Post.findByIdAndDelete(req.params.id)        
         res.status(200).json("post deleted");
-    } else{
-        res.status(400).json("can not delete anothers post");
-    }
+    // } else{
+    //     res.status(400).json("can not delete anothers post");
+    // }
     }
     catch (error) {
         res.status(400).json(error);           
     }      
 });
+
 
 //like and dislike post
 
