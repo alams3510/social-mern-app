@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://socialmern.onrender.com/api"
+  "proxy":"http://localhost:3001/api"
 }
