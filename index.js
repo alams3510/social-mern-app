@@ -7,7 +7,7 @@ const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const multer=require("multer");
 const path = require("path");
-// const cors=require("cors");
+const cors=require("cors");
 
 dotenv.config();
 const PORT=process.env.PORT||3001
@@ -31,7 +31,7 @@ const connectDB=async()=>{
 //middleware
 app.use("/images",express.static(path.join(__dirname,"public/images")))
 app.use(express.json());
-// app.use(cors())
+app.use(cors())
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
