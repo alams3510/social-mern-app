@@ -24,6 +24,7 @@ const Feed = ({username}) => {
      fetchPosts();
     },[username,user._id])
 
+    console.log(posts);
 
   return (
     <div className="feedContainer">
@@ -31,7 +32,7 @@ const Feed = ({username}) => {
       {
         posts.map((posts)=>{
           return(
-            <Post posts={posts} key={posts._id}/>
+            <Post posts={posts ? posts :"no"} key={posts._id} />
 
           )
         })

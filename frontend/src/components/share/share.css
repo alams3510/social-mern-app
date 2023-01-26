@@ -84,3 +84,41 @@
   cursor: pointer;
   border: none;
 }
+
+@media screen and (max-width:576px){
+  .shareContainer{
+    width: 100%;
+  margin-top: 0px;
+
+  }
+  .shareWrapper{
+    padding: 5px;
+  }
+  .shareDown{
+    width: 100%;
+  }
+  .photoUpload{
+    margin-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+  .shareOptions{
+    width: 100%;
+  }
+  .shareText{
+    font-size: 11px;
+  }
+  .shareImg {
+    width: 35px;
+    height: 35px;
+  }
+  .sbtn {
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  .shareIcon {
+    font-size: 12px;
+  }
+}

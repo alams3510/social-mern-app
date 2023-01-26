@@ -1,5 +1,5 @@
 .topbarContainer {
-  width: 100%;
+  /* width: 100%; */
   height: 50px;
   background-color: #1877f2;
   color: white;
@@ -92,4 +92,47 @@
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+
+@media screen and (max-width: 576px){
+  .topbarContainer{
+      width: 100%;
+      height: 40px;
+  }
+  .tobarLeft{
+    flex: .5;
+  }
+  .topRight{
+    flex: .5;
+  }
+  .topRightwrapper{
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+  .topbarMid{
+    display: none;
+  }
+  .textLink{
+    display: none;
+  }
+  .logo{
+    font-size: 20px;
+  }
+  .icon{
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  .num{
+    width: 8px;
+    height: 8px;
+  font-size: 7px;
+
+  }
+  .linkIcons{
+display: none;  
+}
+.profileImgbar{
+  width: 30px;
+  height: 30px;
+}
 }

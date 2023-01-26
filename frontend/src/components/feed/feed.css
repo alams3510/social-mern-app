@@ -2,3 +2,8 @@
   flex: 5.5;
   padding: 15px;
 }
+@media screen and (max-width:576px) {
+  .feedContainer{
+    width: 100%;
+  }
+}

@@ -49,14 +49,8 @@ const Post = ({posts}) => {
          } 
          }
       }
-      if(!posts._id){
       
-        return (<div className="nopost">
-        
-        <h1 >You dont have any post yet</h1>
-            <p>Please do share your thoughts....</p>
-        </div>)
-      }
+     
   return (
     <>
         <div className="postContainer">
@@ -98,10 +92,6 @@ const Post = ({posts}) => {
           </div>
         </div>
       </div>
-      
-    
-      
-
        </>
   )
   ;

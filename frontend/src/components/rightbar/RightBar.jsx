@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import {axiosInstance} from "../../config"
 import { useState } from "react";
 import {AuthContext} from "../../context/AuthContext"
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 
 
 const RightBar = ({ user }) => {
@@ -92,15 +92,18 @@ setFollow(currentUser.followings.includes(user?._id))
   };
 
   const ProfileRightBar = () => {
-
+const name=useParams()
+console.log(name);
+console.log(currentUser.username);
    
     return (
-      <div className="profileContainer">
-        <button className="followbtn" onClick={handleFollow}>
+      <div  className="profileContainer">
+       {name.username !== currentUser.username &&<button className="followbtn" onClick={handleFollow}>
           <div>{follow?"UnFollow":"Follow"}</div> <GrFormAdd className="addicon" />
-        </button>
+        </button>}
         <div className="userInfo">
           <h4 className="userHeading">User Information</h4>
+          <hr />
           <div className="userdetails">
             <span>
               <b>City</b> {user.city}
@@ -112,6 +115,7 @@ setFollow(currentUser.followings.includes(user?._id))
               <b>RelationShip</b> {user.relationship ===1 ? "Single": user.relationship===2? "Married": ""}
             </span>
           </div>
+          <hr />
           <div className="userFriends">
             <h2>User Friends</h2>
             {
